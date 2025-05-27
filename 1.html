@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <!-- 引入 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        header h1, footer p {
+            margin: 0;
+        }
+        section {
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .profile, .content, .advert {
+            width: 30%;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .profile {
+            text-align: center;
+        }
+        .profile img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .profile img:hover {
+            transform: scale(1.1);
+        }
+        .content h2, .advert h2 {
+            margin-top: 0;
+        }
+        footer {
+            padding: 10px;
+            text-align: center;
+        }
+        .friend-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .friend-links a {
+            margin: 0 10px;
+            font-size: 18px;
+            color: #2575fc;
+            text-decoration: none;
+        }
+        .friend-links a:hover {
+            text-decoration: underline;
+        }
+        /* 新增查询区域样式 */
+        .query-area {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* 表单输入样式 */
+        input[type="text"], input[type="date"], textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, input[type="date"]:focus, textarea:focus {
+            border-color: #2575fc;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #2575fc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #6a11cb;
+        }
+        /* 动态效果 */
+        .animate {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile, .content, .advert {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>欢迎来到我的个人主页</h1>
+    <p>个人介绍和内容展示</p>
+</header>
+
+<section class="container">
+    <!-- 个人信息展示 -->
+    <div class="profile animate">
+        <h2>个人信息</h2>
+        <img src="wqs.jpeg" alt="个人照片">
+        <p><strong>姓名：</strong><span id="name">王大帅</span></p>
+        <p><strong>年龄：</strong><span id="age">20</span></p>
+        <h3>职业</h3>
+        <p id="occupation">我是重庆邮电大学的大二学生，专业为物联网工程专业。</p>
+        <h3>兴趣爱好</h3>
+        <p id="hobbies">我喜欢打游戏、旅行和看电影，对编程和人工智能比较感兴趣。</p>
+        <h3>个人座右铭</h3>
+        <p id="motto">生活不止眼前的苟且，还有诗和远方。</p>
+    </div>
+    <!-- 主要内容展示 -->
+    <div class="content animate">
+        <h2>每日文章和分享</h2>
+        <p><strong>最新文章：</strong> <span id="latest-article">如何高效利用时间</span></p>
+        <p><strong>文章发布日期：</strong> <span id="article-date">2025-05-27</span></p>
+        <h3>文章内容</h3>
+        <p id="article-content">这是我的最新文章内容。内容将动态更新。</p>
+        <h3>图片/视频分享</h3>
+        <img src="ring.jpg" alt="分享的图片" width="100%">
+        <br>
+        <video width="100%" controls>
+            <source src="ring1.mp4" type="video/mp4">
+            您的浏览器不支持视频播放。
+        </video>
+    </div>
+    <!-- 广告区域 -->
+    <div class="advert animate">
+        <h2>广告</h2>
+        <img src="cqupt.jpg" alt="广告" width="100%">
+        <p>欢迎报考重庆邮电大学。</p>
+    </div>
+</section>
+
+<!-- 文章查询区域 -->
+<section class="query-area">
+    <h2>文章查询</h2>
+    <form id="article-query-form">
+        <label for="query-title">标题：</label><br>
+        <input type="text" id="query-title" name="query-title" placeholder="输入文章标题"><br><br>
+        <label for="query-date">日期：</label><br>
+        <input type="date" id="query-date" name="query-date"><br><br>
+        <input type="submit" value="查询文章">
+    </form>
+</section>
+
+<!-- 留言板区域 -->
+<section>
+    <h2>留言板</h2>
+    <form action="#" method="post">
+        <label for="name">姓名：</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="message">留言：</label><br>
+        <textarea id="message" name="message" required></textarea><br><br>
+        <input type="submit" value="提交留言">
+    </form>
+</section>
+
+<!-- 友情连接 -->
+<div class="friend-links">
+    <h2>友情链接</h2>
+    <a href="https://www.cqupt.edu.cn/" target="_blank"><i class="fas fa-university"></i> 重庆邮电大学</a>
+    <a href="https://www.bilibili.com/" target="_blank"><i class="fab fa-bilibili"></i> 哔哩哔哩</a>
+    <a href="https://www.csdn.net/" target="_blank"><i class="fab fa-csdn"></i> CSDN</a>
+    <a href="https://www.douyin.com/" target="_blank"><i class="fab fa-tiktok"></i> 抖音</a>
+</div>
+<footer>
+    <p>版权所有 © 2025 个人主页</p>
+</footer>
+<script>
+    // 示例文章数据（模拟后端数据）
+    const articles = [
+        {
+            title: "艾尔登法环",
+            date: "2025-05-27",
+            content: "展示艾尔登法环这款游戏。",
+            media: "ring.jpg",
+            video: "ring1.mp4"
+        },
+        {
+            title: "学习编程的技巧",
+            date: "2025-05-26",
+            content: "学习编程是一个漫长的过程，但只要坚持下去，就能获得回报。",
+            media: "coding-image.jpg",
+            video: "coding-video.mp4"
+        }
+    ];
+    // 查询表单提交事件处理
+    document.getElementById('article-query-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // 防止表单默认提交
+        const queryTitle = document.getElementById('query-title').value;
+        const queryDate = document.getElementById('query-date').value;
+        let foundArticle = null;
+        // 查找匹配的文章
+        foundArticle = articles.find(article => (article.title.includes(queryTitle) || queryTitle === '') && (article.date === queryDate || queryDate === ''));
+        // 如果找到文章，更新页面
+        if (foundArticle) {
+            document.getElementById('latest-article').innerText = foundArticle.title;
+            document.getElementById('article-date').innerText = foundArticle.date;
+            document.getElementById('article-content').innerText = foundArticle.content;
+            document.querySelector('.content img').src = foundArticle.media;
+            document.querySelector('.content video').src = foundArticle.video;
+        } else {
+            alert('没有找到匹配的文章');
+        }
+    });
+    // 动态更新最新文章（基于当前日期）
+    const currentDate = new Date().toISOString().split('T')[0]; // 获取当前日期
+    const latestArticle = articles.find(article => article.date === currentDate);
+    if (latestArticle) {
+        document.getElementById('latest-article').innerText = latestArticle.title;
+        document.getElementById('article-date').innerText = latestArticle.date;
+        document.getElementById('article-content').innerText = latestArticle.content;
+        document.querySelector('.content img').src = latestArticle.media;
+        document.querySelector('.content video').src = latestArticle.video;
+    }
+</script>
+</body>
+</html>
